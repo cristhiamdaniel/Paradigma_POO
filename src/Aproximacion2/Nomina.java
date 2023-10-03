@@ -1,4 +1,4 @@
-package Aproximaciones;
+package Aproximacion2;
 
 import java.util.Scanner;
 
@@ -8,9 +8,21 @@ class Empleado {
     String nombre;
     double horasTrabajadas;
     double sueldoXHora;
+
+    Empleado(String cedula, String apellido, String nombre, double horasTrabajadas, double sueldoXHora) {
+        this.cedula = cedula;
+        this.apellido = apellido;
+        this.nombre = nombre;
+        this.horasTrabajadas = horasTrabajadas;
+        this.sueldoXHora = sueldoXHora;
 }
 
-class Nomina1 {
+    double calcularSalario(){
+        return horasTrabajadas * sueldoXHora;
+    }
+}
+
+class Nomina2 {
     public static void main(String[] args) {
         int numeroEmpleados;
         Empleado[] losEmpleados = new Empleado[50];
@@ -37,12 +49,7 @@ class Nomina1 {
             System.out.print("\nDigite el sueldo por hora del empleado: ");
             sueldo = sc.nextDouble();
 
-            Empleado unEmpleado = new Empleado();
-            unEmpleado.cedula = cedula;
-            unEmpleado.apellido = apellido;
-            unEmpleado.nombre = nombre;
-            unEmpleado.horasTrabajadas = horas;
-            unEmpleado.sueldoXHora = sueldo;
+            Empleado unEmpleado = new Empleado(cedula, apellido, nombre, horas, sueldo);
 
             losEmpleados[i] = unEmpleado;
 
@@ -50,11 +57,12 @@ class Nomina1 {
         }
 
         for (int i = 0; i < numeroEmpleados; i++) {
-            total = total + losEmpleados[i].sueldoXHora * losEmpleados[i].horasTrabajadas;
+            total = total + losEmpleados[i].calcularSalario();
         }
 
         System.out.println("\nLa nomina total es: " + total);
 
         sc.close(); // Cerramos el Scanner
     }
+
 }
