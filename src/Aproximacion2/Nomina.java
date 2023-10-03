@@ -2,27 +2,7 @@ package Aproximacion2;
 
 import java.util.Scanner;
 
-class Empleado {
-    String cedula;
-    String apellido;
-    String nombre;
-    double horasTrabajadas;
-    double sueldoXHora;
-
-    Empleado(String cedula, String apellido, String nombre, double horasTrabajadas, double sueldoXHora) {
-        this.cedula = cedula;
-        this.apellido = apellido;
-        this.nombre = nombre;
-        this.horasTrabajadas = horasTrabajadas;
-        this.sueldoXHora = sueldoXHora;
-}
-
-    double calcularSalario(){
-        return horasTrabajadas * sueldoXHora;
-    }
-}
-
-class Nomina2 {
+class Nomina {
     public static void main(String[] args) {
         int numeroEmpleados;
         Empleado[] losEmpleados = new Empleado[50];
@@ -30,7 +10,7 @@ class Nomina2 {
         double horas, sueldo;
         double total = 0;
 
-        Scanner sc = new Scanner(System.in); // Usamos Scanner en lugar de BufferedReader
+        Scanner sc = new Scanner(System.in);
 
         System.out.println("Digite el numero de empleados: ");
         numeroEmpleados = sc.nextInt();
@@ -53,7 +33,7 @@ class Nomina2 {
 
             losEmpleados[i] = unEmpleado;
 
-            sc.nextLine(); // Consume el salto de línea restante si hay más datos para leer después
+            sc.nextLine();
         }
 
         for (int i = 0; i < numeroEmpleados; i++) {
@@ -62,7 +42,7 @@ class Nomina2 {
 
         System.out.println("\nLa nomina total es: " + total);
 
-        sc.close(); // Cerramos el Scanner
+        sc.close();
     }
 
 }
